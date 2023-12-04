@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: url("https://images.pexels.com/photos/1629998/pexels-photo-1629998.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+        no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+
+      }
+      #open {
+        position: relative;
+        top: 100%;
+        background: transparent;
+        border: 1px solid white;
+        color: white;
+        transition: 0.5s;
+        border-radius: 5px;
+      }
+      #open:hover {
+        background-color: white;
+        color: black;
+
+    }
+    #open p:hover{
+          transform: scale(1.5);
+          padding-left:30px ;
+          padding-right: 30px;
+        
+      }
+      #modal {
+        color: black;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        background-color: aliceblue;
+     
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 20px;
+        height: 40px;
+        /* z-index: 1; */
+        
+      }
+      .container{
+        position: relative;
+         width: 40vw;
+        height: 30vh;
+
+     }
+      #modal-container{
+        display: none;
+        position: absolute;
+        right: 0;
+        animation-name:kapil;
+        animation-duration: .4s;
+        z-index: 1;
+      }
+      #close-btn{
+        cursor: pointer;
+        font-size: 3rem;
+        color: red;
+        display: inline;
+        
+      }
+      .lul{
+        
+        font-size: 2rem;
+        display: inline;
+        
+      }
+
+      @keyframes kapil{
+        from{
+            top: -300px;
+            opacity: 0;
+        }
+        to{
+            top: 0%;
+            opacity: 1;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="modal-container">
+            <div id="modal">
+                <p class="lul">Here I am!</p>
+                <span id="close-btn">&times;</span>
+            </div>
+        </div>
+        <button id="open"><p>Where's Our Modal</p></button>
+    </div>
+<script>
+let btn = document.getElementById('open')
+let modal = document.getElementById('modal-container')
+let closeBtn = document.getElementById('close-btn')
+
+btn.addEventListener('click',function(){
+    modal.style.display ="block";
+})
+closeBtn.addEventListener('click',function(){
+    modal.style.display ='none';
+})
+addEventListener('click',function(element){
+    if(element.target==modal){
+        modal.style.display='none';
+    }
+})
+
+
+</script>
+  </body>
+</html>
